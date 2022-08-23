@@ -1,0 +1,97 @@
+$whiteBack: #FFFEFB;
+$silverColor: #B4B4B4;
+$silverHoverColor: #7e7e7e;
+
+.sort {
+	position: relative;
+
+	&:hover {
+		.sort__list {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	&__title {
+		padding: 10px 16px 11px 16px;
+		background: $whiteBack;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 15px;
+		text-decoration: none;
+		color: $silverColor;
+		display: flex;
+		grid-column-gap: 5px;
+		cursor: pointer;
+		transition: .3s;
+		transform: scale(0);
+		position: relative;
+		z-index: 4;
+
+		animation-name: sort-btn;
+		animation-duration: .3s;
+		animation-fill-mode: forwards;
+
+		&:hover, &:focus {
+			color: $silverHoverColor;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.286);
+			transition: .3s;
+		}
+
+		&:focus~ {
+			.sort__list {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		@keyframes sort-btn {
+			100% {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__list {
+		position: absolute;
+		background: $whiteBack;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		width: 100%;
+		padding: 10px 16px 11px 16px;
+		z-index: 3;
+		opacity: 0;
+		overflow: hidden;
+		visibility: hidden;
+		transition: .3s;
+
+		& ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			grid-row-gap: 5px;
+		}
+
+		& a {
+			text-decoration: none;
+			color: $silverColor;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 15px;
+		}
+
+		& li {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			cursor: pointer;
+			transition: color .3s;
+
+			&:hover {
+				color: $silverHoverColor;
+			}
+		}
+	}
+
+}
