@@ -1,6 +1,7 @@
 # shop
 
-## Nodev14.17.6
+## Node
+v14.17.6
 
 ## Project setup
 ```
